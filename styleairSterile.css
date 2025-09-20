@@ -1,0 +1,1335 @@
+/* -------------------------
+   🎨 Variables
+------------------------- */
+:root {
+--black: #201f1f;
+--orange: #aa620f;
+--grey-dark: #333;
+--orange-light: #aa620f;
+--grey-light: #aaa;
+--white: #fff;
+}
+
+
+
+
+/* -------------------------
+   🔄 Reset & Base
+------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* Sparkle section wrapper */
+.sparkle-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sparkle canvas */
+#tsparticles-presentation {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Προτεραιότητα στο περιεχόμενο */
+.presentation-content {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+body {
+font-family: system-ui, sans-serif;
+color: var(--grey-dark);
+background: var(--black);
+line-height: 1.6;
+}
+
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* -------------------------
+   💻 Layout
+------------------------- */
+.container {
+  width: min(90%, 1200px);
+  margin-inline: auto;
+
+}
+
+/* -------------------------
+   🧭 Header & Navigation
+------------------------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(90deg, #1f1c2c, #928dab);
+  color: var(--orange);
+  padding-block: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* προαιρετική σκιά */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-methodologia header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+    background: linear-gradient(90deg, #1f1c2c, #928dab);
+
+  z-index: 9999;
+}
+
+/* Για να μην καλύπτεται το περιεχόμενο από τον fixed header */
+.page-methodologia {
+  padding-top: 80px; /* Ίσο με το ύψος του header */
+}
+
+.page-stoxoi header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+    background: linear-gradient(90deg, #1f1c2c, #928dab);
+
+  z-index: 9999;
+}
+
+/* Για να μην καλύπτεται το περιεχόμενο από τον fixed header */
+.page-stoxoi {
+  padding-top: 80px; /* Ίσο με το ύψος του header */
+}
+
+
+
+.page-apotelesmata header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+    background: linear-gradient(90deg, #1f1c2c, #928dab);
+
+  z-index: 9999;
+}
+
+/* Για να μην καλύπτεται το περιεχόμενο από τον fixed header */
+.page-apotelesmata {
+  padding-top: 80px; /* Ίσο με το ύψος του header */
+}
+
+#plaisia  {
+  background: rgba(20, 20, 20, 0.6); /* ημιδιαφανές σκούρο φόντο */
+  backdrop-filter: blur(6px); /* εφέ θολούρας */
+  -webkit-backdrop-filter: blur(6px); /* υποστήριξη Safari */
+  padding: 15px 20px; /* εσωτερικό κενό */
+  border-radius: 12px; /* στρογγυλεμένες γωνίες */
+  margin-bottom: 15px; /* κενό ανάμεσα στις παραγράφους */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* λεπτό περίγραμμα */
+  color: #f1f1f1; /* ανοιχτόχρωμο κείμενο για αντίθεση */
+
+
+}
+
+#plaisia:hover {
+  box-shadow: 0 0 15px rgba(255, 165, 0, 0.5),
+              0 0 30px rgba(255, 140, 0, 0.3);
+}
+
+#bullets-apotelesmata {
+  background: rgba(20, 20, 20, 0.6); /* ημιδιαφανές σκούρο φόντο */
+  backdrop-filter: blur(6px); /* εφέ θολούρας */
+  -webkit-backdrop-filter: blur(6px); /* υποστήριξη Safari */
+  padding: 15px 20px; /* εσωτερικό κενό */
+  border-radius: 12px; /* στρογγυλεμένες γωνίες */
+  margin-bottom: 15px; /* κενό ανάμεσα στις παραγράφους */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* λεπτό περίγραμμα */
+  color: #f1f1f1; /* ανοιχτόχρωμο κείμενο για αντίθεση */
+
+}
+
+#bullets-apotelesmata:hover {
+  box-shadow: 0 0 15px rgba(255, 165, 0, 0.5),
+              0 0 30px rgba(255, 140, 0, 0.3);
+}
+
+
+.text-paragraph {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Όταν γίνει "visible" */
+.text-paragraph.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+.logo {
+font-size: 1.5rem;
+}
+
+
+.logo-container {
+display: flex;
+align-items: center;
+gap: 30px;
+
+}
+
+
+
+.logo-img {
+height: 100px;
+margin-left: -150px;
+align-content: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+border-radius: 10px;
+}
+
+
+.logo-text {
+font-family: 'Segoe UI', 'Roboto', sans-serif;
+font-size: 5rem;
+font-weight: bold;
+color: transparent;
+text-transform: uppercase;
+-webkit-text-stroke: 3px #aa620f;
+letter-spacing: 1px;
+position: relative;
+cursor: pointer;
+animation: rainbow-glow 5s infinite linear;
+}
+
+.logo-text::before{
+  content: 'AIRSTERIL';
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  color: #aa620f;
+  border-right: solid 0px #aa620f;
+  overflow: hidden;
+  transition: width 1.5s, text-shadow 1.3s;
+}
+
+.logo-text:hover::before{
+  border-right: solid 2px;
+  width: 100%;
+  text-shadow: 0 0 20px #aa620f;
+}
+
+
+
+.footer-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-logos img {
+  height: 100px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.footer-logos img:hover {
+  transform: scale(1.1);
+  filter: grayscale(0%);
+}
+
+
+
+
+.nav-links {
+display: flex;
+gap: 32px;
+}
+.nav-links a {
+color: var(--white);
+font-weight: bold;
+text-decoration: none;
+transition: all 0.3s ease;
+
+
+}
+
+.nav-links a:hover {
+color: var(--white);
+border: 2px solid var(--grey-dark);
+padding: 6px 12px;
+border-radius: 10px;
+background-color: rgba(255,255,255,0.05); /* Προαιρετικό */
+}
+
+
+
+/* -------------------------
+   📱 Mobile Navigation
+------------------------- */
+.mobile-menu-toggle {
+  display: none;
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  background: var(--grey-dark);
+}
+.mobile-nav a {
+  padding: 12px;
+  border-top: 1px solid #cc7a1f;
+  color: var(--white);
+  text-align: center;
+}
+.mobile-nav.active {
+  display: flex;
+}
+
+/* -------------------------
+   🧩 Sections
+------------------------- */
+section {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+#presentation {
+  background: linear-gradient(135deg, #0f0f0f, #3b3939);
+  color: white; /* Για να φαίνεται καλά το κείμενο */
+  padding: 60px 20px;
+}
+
+.section-dark {
+  background: #f0ebe3;
+}
+.section-light {
+  background: var(--grey-light);
+}
+
+.section-very-dark {
+  background-color: #1d1d1d;
+}
+
+#partners {
+  background: linear-gradient(135deg, #0f0f0f, #3b3939);
+  color: rgb(32, 32, 32); /* Για να φαίνεται καλά το κείμενο */
+  padding: 60px 20px;
+}
+
+section#stoxoi {
+  background: linear-gradient(135deg, #0f0f0f, #3b3939);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+section#stoxoi h2 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+section#stoxoi p {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+  opacity: 1;
+}
+
+section#stoxoi  ul {
+  margin-top: 10px;
+  padding-left: 50px; /* για να φαίνονται τα bullets */
+  list-style-type: none; /* παραδοσιακά bullets */
+  max-width: 1200px;
+  padding-top: 10px;
+}
+
+section#stoxoi ul li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  padding-left: 2px;
+  padding-top: 20px;
+  
+}
+
+section#stoxoi h2 {
+    background: linear-gradient(135deg, #0f0f0f, #3b3939);
+    padding-top: 10px;
+  transition: opacity 0.8s ease;
+  margin-top: 30px;
+}
+  
+/* Bullets styling */
+#stoxoi ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#stoxoi ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  
+}
+
+#stoxoi ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(45deg, #cf6c0f, #f06595);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(184, 176, 176, 0.87);
+}
+
+
+section#methodologia {
+  background: linear-gradient(135deg, #0f0f0f, #3b3939);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+section#methodologia p {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+  opacity: 1;
+}
+section#methodologia h2 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+
+section#orimotita {
+  background: linear-gradient(135deg, #0f0f0f, #3b3939);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+section#orimotita p {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+  opacity: 1;
+}
+section#orimotita h2 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+
+section#paketa-ergasias {
+  background: linear-gradient(135deg, #3d3c3c, #3b3939);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+section#paketa-ergasias p {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+  opacity: 1;
+}
+section#paketa-ergasias h2 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+
+section#exoplismos {
+  background: linear-gradient(135deg, #3d3c3c, #3b3939);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+section#exoplismos p {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+  opacity: 1;
+}
+section#exoplismos h2 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+section#xronodiagramma {
+  background: linear-gradient(135deg, #0f0f0f, #3b3939);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+section#xronodiagramma p{
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+  opacity: 1;
+}
+section#xronodiagramma h2 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+
+section#apotelesmata {
+  background: linear-gradient(135deg, #0f0f0f, #3b3939);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+section#apotelesmata p {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+  opacity: 1;
+}
+section#apotelesmata h2 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+section#apotelesmata  ul {
+  margin-top: 10px;
+  padding-left: 50px; /* για να φαίνονται τα bullets */
+  list-style-type: none; /* παραδοσιακά bullets */
+  max-width: 1200px;
+  padding-top: 10px;
+}
+
+section#apotelesmata ul li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  padding-left: 2px;
+  padding-top: 20px;
+  
+}
+
+
+#apotelesmata ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  
+}
+
+#apotelesmata ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(45deg, #cf6c0f, #976a6a);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(184, 176, 176, 0.87);
+}
+
+
+
+section#economics {
+  background: linear-gradient(135deg, #0f0f0f, #3b3939);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+section#economics p {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+  opacity: 1;
+}
+section#economics h2 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  
+}
+
+
+.hero {
+position: relative;
+background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(0,0,0,0.2));
+background-size: cover;
+background-position: center;
+padding: 6rem 1rem;
+color: white;
+text-align: center;
+}
+
+/* Sparkle layer */
+.sparkle-overlay {
+position: absolute;
+inset: 0;
+pointer-events: none;
+background-image: radial-gradient(white 1px, transparent 1px);
+background-size: 20px 20px;
+animation: sparkleMove 10s linear infinite;
+opacity: 0.2;
+z-index: 1; /* κάτω από το content */
+}
+
+/* Το περιεχόμενο να είναι πάνω από το overlay */
+.hero .container {
+position: relative;
+z-index: 2;
+}
+
+
+/* Sparkle animation */
+@keyframes sparkleMove {
+0% {
+background-position: 0 0;
+}
+100% {
+background-position: 100px 100px;
+}
+}
+
+
+
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+
+
+
+.hero h2 {
+  font-size: 4rem;
+  color: var(--blue-dark);
+  margin-bottom: 1rem;
+}
+
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* -------------------------
+   📎 Typography
+------------------------- */
+.text-paragraph {
+  text-align: justify;
+  text-indent: 2em;
+  line-height: 1.7;
+  margin-bottom: 1em;
+}
+
+/* -------------------------
+   📬 Contact
+------------------------- */
+.contact .email-link {
+  font-size: 1.2rem;
+  color: #aa620f;
+  text-decoration: underline;
+}
+
+#contact {
+  background-color: #222222;
+  color: #fff;
+  padding: 3rem 1rem;
+}
+
+
+
+/* -------------------------
+   ⏹ Footer
+------------------------- */
+footer {
+  background: linear-gradient(90deg, #1f1c2c, #928dab);
+  color: var(--white);
+  text-align: center;
+  padding: 20px;
+}
+
+/* -------------------------
+   ✨ Animations
+------------------------- */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+.slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 1s forwards;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------------
+   📱 Responsive
+------------------------- */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .mobile-menu-toggle {
+    display: block;
+  }
+}
+
+
+main {
+  padding-top: 130px; /* Ανάλογα με το πραγματικό ύψος του header */
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding-top: 150px; /* Περισσότερο padding αν μεγαλώνει το header στο mobile */
+  }
+}
+
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+   padding-top: 100px;
+  flex: 1;
+}
+
+
+/*---images----*/
+
+
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 55px;
+  margin-bottom: 70px;
+}
+
+.photocatalysis-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 25px rgba(211, 127, 2, 0.4);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Hover zoom + glow */
+.photocatalysis-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(241, 166, 2, 0.9);
+}
+
+/* Underglow effect */
+.image-container::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -15px;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 20px;
+  background: radial-gradient(ellipse at center, rgba(228, 131, 3, 0.685) 0%, transparent 80%);
+  filter: blur(10px);
+  opacity: 0.6;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.image-container:hover::after {
+  opacity: 1;
+}
+
+.methodologia-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 25px rgba(211, 127, 2, 0.4);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Hover zoom + glow */
+.methodologia-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(241, 166, 2, 0.9);
+}
+
+
+
+
+
+
+
+.paketa-ergasias-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 25px rgba(211, 127, 2, 0.4);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Hover zoom + glow */
+.paketa-ergasias-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(241, 166, 2, 0.9);
+}
+
+
+.paketa-ergasias-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 25px rgba(211, 127, 2, 0.4);
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+
+
+/* Hover zoom + glow */
+.xronodiagramma-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(241, 166, 2, 0.9);
+}
+
+.xronodiagramma-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 25px rgba(211, 127, 2, 0.4);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Hover zoom + glow */
+.xronodiagramma-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(241, 166, 2, 0.9);
+}
+
+
+
+
+
+.xronodiagramma-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 25px rgba(211, 127, 2, 0.4);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Hover zoom + glow */
+.xronodiagramma-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(241, 166, 2, 0.9);
+}
+
+
+/* Dropdown (Desktop) */
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+
+.dropbtn:hover {
+color: var(--white);
+border: 2px solid var(--black);
+padding: 6px 12px;
+border-radius: 10px;
+background-color: rgba(255, 255, 255, 0.05); /* Προαιρετικό */
+transition: all 0.3s ease;
+}
+
+
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #272525;
+  min-width: 280px;
+  z-index: 1000;
+  top: 100%;
+  left: 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  flex-direction: column;
+}
+.dropdown-content a {
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {
+  background-color: #aa620f;
+}
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+
+/* Δευτερεύον dropdown */
+.dropdown-sub {
+  position: relative;
+}
+
+.dropdown-sub-content {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%; /* Ανοίγει δεξιά */
+  background-color: #272525;
+  min-width: 250px;
+  z-index: 1;
+}
+
+.dropdown-sub:hover .dropdown-sub-content {
+  display: block;
+}
+
+/* Στυλ συνδέσμων */
+
+.dropdown-sub-content a {
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  color: white;
+}
+
+
+.dropdown-sub-content a:hover {
+  background-color: #aa620f;
+  
+}
+
+
+
+
+
+
+/* Mobile dropdown*/
+.mobile-dropdown {
+  width: 100%;
+}
+.mobile-dropbtn {
+  padding: 12px;
+  color: white;
+  text-align: center;
+  background-color: var(--blue-dark);
+  font-weight: bold;
+  cursor: pointer;
+  border-top: 1px solid #232527;
+}
+.mobile-dropdown-content {
+  display: none;
+  flex-direction: column;
+  background-color: #aa620f;
+}
+.mobile-dropdown-content a {
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  text-align: left;
+  border-top: 1px solid #28292b;
+}
+.mobile-dropdown-content a:hover {
+  background-color: #aa620f;
+}
+
+.mobile-dropdown-sub {
+  position: relative;
+}
+
+.mobile-dropdown-sub-content {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #272525;
+  min-width: 250px;
+  z-index: 1;
+}
+
+.dropdown-sub.show .dropdown-sub-content {
+  display: block; /* Εμφανίζεται όταν προσθέτουμε την κλάση .show */
+}
+
+.mobile-dropdown-sub-content a {
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  color: white;
+}
+
+.mobile-dropdown-sub-content a:hover {
+  background-color: #aa620f;
+}
+
+
+
+.section-title {
+background-color: #272525; /* απαλό πράσινο */
+color: #f8f1f1; /* σκούρο πράσινο */
+padding: 0.75rem 1.5rem;
+border-radius: 8px;
+font-size: 2rem;
+font-weight: bold;
+max-width: 100%; /* πλήρες πλάτος εντός container */
+margin-bottom: 1rem;
+text-align: center;
+text-indent: 2em;
+
+transform: translateY(20px);
+transition: opacity 0.8s ease, transform 0.8s ease;
+
+}
+
+
+
+
+
+
+
+
+
+.summary-btn {
+  background-color: var(--orange);
+  color: white;
+  width: 200px;
+  height: 50px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+
+
+
+.summary-btn:hover {
+  background-color: #e69a2a; /* πιο φωτεινό highlight */
+  transform: scale(1.05);
+}
+
+.summary-text {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.6s ease;
+}
+
+.summary-text.active {
+  max-height: 500px; /* ή παραπάνω αν έχεις πολύ κείμενο */
+  opacity: 1;
+  margin-top: 1rem;
+}
+
+
+.summary-toggle-btn {
+  background-color: #aa620f;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s ease;
+}
+.summary-toggle-btn:hover {
+  background-color: #cc7a1f;
+}
+
+
+/*card*/
+.image-gallery {
+padding: 4rem 1rem;
+text-align: center;
+
+background: linear-gradient(90deg, #1f1c2c, #928dab);
+
+}
+
+.image-grid {
+display: flex;
+flex-wrap: wrap;
+gap: 4rem;
+justify-content: center;
+perspective: 1000px;
+padding-top: 4rem;
+
+}
+
+.image-card {
+width: 400px;
+height: 400px;
+background: #1a1a1a;
+border-radius: 16px;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+transform-style: preserve-3d;
+will-change: transform;
+transition: transform 0.1s ease, box-shadow 0.2s ease;
+margin: 0 20px 40px 20px;
+}
+
+.image-card img {
+width: 100%;
+height: 220px; /* το ύψος της εικόνας */
+display: block;
+}
+
+.image-caption {
+padding: 12px 16px;
+color: #eee;
+font-size: 1rem;
+background: #272525;
+flex-grow: 1; /* καταλαμβάνει όλο το υπόλοιπο ύψος */
+overflow-y: auto; /* αν το κείμενο είναι μεγάλο, να έχει scroll */
+border-radius: 0 0 16px 16px;
+user-select: none;
+}
+
+/* Optional glowing border */
+.image-card::before {
+content: '';
+position: absolute;
+top: 0; left: 0;
+width: 100%;
+height: 100%;
+border-radius: 16px;
+background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 200, 100, 0.1));
+pointer-events: none;
+}
+
+
+.image-card:hover {
+box-shadow: 0 12px 30px rgba(170, 98, 15, 0.8);
+transform: translateZ(20px) rotateY(5deg) rotateX(5deg);
+}
+
+.image-card:hover .image-caption {
+background-color: #aa620f;
+box-shadow: 0 0 15px #ffb347;
+color: #fff;
+}
+
+
+/*Mobile card*/
+@media (max-width: 600px) {
+  .image-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .image-card {
+    max-width: 180px;
+  }
+}
+
+
+/*partners*/
+.partners-list {
+list-style: none;
+padding: 0;
+max-width: 1250px;
+margin: 0 auto;
+}
+
+.partner-details {
+overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  background-color: #fff;
+  transition: ease-in-out 0.3s;
+  text-align: justify;
+  padding: 1rem;
+  
+  
+
+}
+
+.partner-details.open {
+padding: 1rem 0;
+max-height: 800px; 
+}
+
+.partner-item {
+border: 1px solid #333;
+border-radius: 10px;
+margin-bottom: 1rem;
+overflow: hidden;
+box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+transition: box-shadow 0.3s ease;
+
+}
+
+.partner-item:hover {
+box-shadow: 0 5px 15px rgba(253, 144, 1, 0.644);
+}
+
+.partner-header {
+display: flex;
+align-items: center;
+gap: 15px;
+padding: 1rem;
+cursor: pointer;
+background-color: #928dab;
+}
+
+.partner-logo {
+width: 60px;
+height: auto;
+object-fit: contain;
+}
+
+.partner-header h3 {
+flex-grow: 1;
+margin: 0;
+font-size: 1.25rem;
+}
+
+.partner-details.show {
+  max-height: 500px; /* προσαρμόζεις ανάλογα */
+  opacity: 1;
+}
+
+/* κουμπί */
+.toggle-btn {
+background: #cc7a1f;
+border: none;
+color: white;
+font-size: 1.5rem;
+width: 30px;
+height: 30px;
+border-radius: 50%;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+
+.toggle-btn:hover {
+background-color: #aa620f;
+}
+
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  
+  .partner-details ul {
+  padding-left: 20px; /* Αριστερή απόσταση για bullets */
+  margin: 10px 0;
+  list-style-type: disc; /* Τυπικά bullets */
+}
+
+.partner-details ul li {
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.partner-details.show {
+  max-height: 2000px; /* αρκετά μεγάλο για να χωράει το περιεχόμενο */
+  opacity: 1;
+}
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-animate.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+.bold-text {
+  font-weight: bold; 
+}
+
+
+
